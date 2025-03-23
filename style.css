@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+/* 🔹 Body Styling with Background */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: url("https://i.pinimg.com/564x/4c/17/cd/4c17cd59fcdc235ab177f9f564fabdc5.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔹 Dark Mode Fix */
+.dark-mode {
+    background: url("https://i.pinimg.com/564x/4c/17/cd/4c17cd59fcdc235ab177f9f564fabdc5.jpg") no-repeat center center fixed !important;
+    background-size: cover !important;
+    color: yellow !important;
+}
+
+/* 🔹 Container - Auto Size with Proper Alignment */
+.container {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 3%;
+    border-radius: 15px;
+    margin: 4vh auto;
+    width: min(85%, 450px); /* Maximum 450px but auto scales */
+    box-shadow: 0 0 15px cyan;
+    border: 2px solid cyan;
+    text-shadow: 0 0 8px cyan;
+    animation: neonPulse 2s infinite alternate;
+}
+
+/* 🔹 Title */
+.title {
+    font-size: clamp(18px, 5vw, 32px);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: yellow;
+    text-shadow: 0 0 10px yellow;
+}
+
+/* 🔹 Period & Time Left */
+.details {
+    font-size: clamp(14px, 3.5vw, 20px);
+    color: cyan;
+}
+
+/* 🔹 Prediction Text */
+.prediction {
+    font-size: clamp(14px, 3vw, 22px);
+    font-weight: bold;
+    color: lime;
+}
+
+/* 🔹 Win/Loss & Accuracy */
+.stats, .accuracy, .history {
+    font-size: clamp(12px, 2.5vw, 18px);
+    color: white;
+}
+
+/* 🔹 Toggle Button */
+.toggle-container {
+    margin-top: 20px;
+}
+
+button {
+    background: black;
+    color: cyan;
+    border: 2px solid cyan;
+    padding: 8px 16px;
+    font-size: clamp(12px, 3vw, 18px);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 12px cyan;
+}
+
+/* 🔹 Dark Mode Button Fix */
+.dark-mode button {
+    border-color: yellow;
+    color: yellow;
+}
+
+.dark-mode button:hover {
+    background: yellow;
+    color: black;
+    box-shadow: 0 0 12px yellow;
+}
+
+/* 🔹 Responsive Fix */
+@media (max-width: 600px) {
+    .container {
+        width: 85%;
+        max-width: 85%;
+        padding: 5px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+                     
