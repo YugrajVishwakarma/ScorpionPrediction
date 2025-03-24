@@ -107,7 +107,7 @@ async function checkAndUpdateResults() {
             entry.result = latestResult.result;
             let actualType = parseInt(latestResult.result) >= 5 ? "BIG" : "SMALL";
 
-            let bettingAmount = 2; // ₹2 बेटिंग अमाउंट (फिक्स)
+            let bettingAmount = 10; // ₹10 बेटिंग अमाउंट (फिक्स)
             balance -= bettingAmount;
 
             if (entry.prediction === actualType) {
