@@ -13,29 +13,34 @@ let historyData = [];
 let totalWins = 0, totalLosses = 0;
 let balance = 100;  // Starting balance
 
-// ✅ Function to Update Timer
+// ✅ Function to Update Timer (Every 30 Seconds)
 function updateTimer() {
     let now = new Date();
     let seconds = now.getUTCSeconds();
-    let remainingSeconds = 60 - seconds;
+    let remainingSeconds = 30 - (seconds % 30); // 30 सेकंड के लिए टाइमर सेट करना
     document.getElementById("timer").innerText = remainingSeconds;
-    if (remainingSeconds === 60) updatePrediction();
+    if (remainingSeconds === 30) updatePrediction();
 }
 setInterval(updateTimer, 1000);
 
-// ✅ Function to Fetch Game Result
+// ✅ Function to Fetch Game Result (New API Integrated)
 async function fetchGameResult() {
     try {
-        const response = await fetch("https://api.bdg88zf.com/api/webapi/GetNoaverageEmerdList", {
+        const response = await fetch("https://api.bigdaddygame.cc/api/webapi/GetNoaverageEmerdList", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json;charset=UTF-8",
+                "Accept": "application/json, text/plain, */*",
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                "Ar-Origin": "https://bdgab.com"
+            },
             body: JSON.stringify({
                 pageSize: 10,
                 pageNo: 1,
-                typeId: 1,
+                typeId: 30, // 30-सेकंड प्रेडिक्शन गेम के लिए
                 language: 0,
-                random: "4a0522c6ecd8410496260e686be2a57c",
-                signature: "334B5E70A0C9B8918B0B15E517E2069C",
+                random: "3ee683f5d5014cf29714726429be4670",
+                signature: "4ECD87B5B1BA526C1A5D020E26A153B7",
                 timestamp: Math.floor(Date.now() / 1000)
             })
         });
@@ -102,7 +107,7 @@ async function checkAndUpdateResults() {
             entry.result = latestResult.result;
             let actualType = parseInt(latestResult.result) >= 5 ? "BIG" : "SMALL";
 
-            let bettingAmount = balance * 0.02; // 2% Betting Fee
+            let bettingAmount = 2; // ₹2 बेटिंग अमाउंट (फिक्स)
             balance -= bettingAmount;
 
             if (entry.prediction === actualType) {
