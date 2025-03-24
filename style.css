@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
-/* 🔹 Body Styling with Background */
+/* 🔹 Body Styling */
 body {
     font-family: 'Orbitron', sans-serif;
     background: url("https://i.pinimg.com/564x/4c/17/cd/4c17cd59fcdc235ab177f9f564fabdc5.jpg") no-repeat center center fixed;
@@ -11,99 +11,114 @@ body {
     padding: 0;
 }
 
-/* 🔹 Dark Mode Fix */
+/* 🔹 Dark Mode */
 .dark-mode {
     background: url("https://i.pinimg.com/564x/4c/17/cd/4c17cd59fcdc235ab177f9f564fabdc5.jpg") no-repeat center center fixed !important;
     background-size: cover !important;
     color: yellow !important;
 }
 
-/* 🔹 Container - Auto Size with Proper Alignment */
+/* 🔹 Container (Responsive Width) */
 .container {
     background: rgba(0, 0, 0, 0.85);
     padding: 3%;
     border-radius: 15px;
-    margin: 4vh auto;
-    width: min(85%, 450px); /* Maximum 450px but auto scales */
-    box-shadow: 0 0 15px cyan;
+    margin: 5vh auto;
+    width: 90%;
+    /* ✅ Percentage-based width */
+    max-width: 450px;
+    /* ✅ Ensures it doesn't get too big on large screens */
+    box-shadow: 0 0 20px cyan;
     border: 2px solid cyan;
     text-shadow: 0 0 8px cyan;
     animation: neonPulse 2s infinite alternate;
 }
 
+/* 🔹 Neon Pulse Animation */
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 15px cyan;
+    }
+
+    100% {
+        box-shadow: 0 0 25px cyan;
+    }
+}
+
 /* 🔹 Title */
-.title {
-    font-size: clamp(18px, 5vw, 32px);
+h1 {
+    font-size: clamp(18px, 5vw, 28px);
     font-weight: bold;
     text-transform: uppercase;
     color: yellow;
-    text-shadow: 0 0 10px yellow;
+    text-shadow: 0 0 15px yellow;
 }
 
-/* 🔹 Period & Time Left */
-.details {
-    font-size: clamp(14px, 3.5vw, 20px);
-    color: cyan;
+/* 🔹 Prediction Box */
+.prediction-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid cyan;
+    border-radius: 10px;
+    padding: 3%;
+    margin: 10px auto;
+    width: 90%;
+    box-shadow: 0 0 10px cyan;
+    font-size: clamp(14px, 3vw, 20px);
 }
 
-/* 🔹 Prediction Text */
-.prediction {
-    font-size: clamp(14px, 3vw, 22px);
-    font-weight: bold;
-    color: lime;
-}
-
-/* 🔹 Win/Loss & Accuracy */
-.stats, .accuracy, .history {
-    font-size: clamp(12px, 2.5vw, 18px);
-    color: white;
-}
-
-/* 🔹 Toggle Button */
-.toggle-container {
-    margin-top: 20px;
-}
-
+/* 🔹 Button Styling */
 button {
     background: black;
     color: cyan;
     border: 2px solid cyan;
-    padding: 8px 16px;
+    padding: 2% 5%;
     font-size: clamp(12px, 3vw, 18px);
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
 }
 
+/* 🔹 Button Hover Effect */
 button:hover {
     background: cyan;
     color: black;
-    box-shadow: 0 0 12px cyan;
+    box-shadow: 0 0 15px cyan;
+    transform: scale(1.05);
 }
 
-/* 🔹 Dark Mode Button Fix */
-.dark-mode button {
-    border-color: yellow;
-    color: yellow;
-}
-
-.dark-mode button:hover {
-    background: yellow;
-    color: black;
-    box-shadow: 0 0 12px yellow;
+/* 🔹 Prediction History */
+#historyList {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid cyan;
+    border-radius: 8px;
+    padding: 2%;
+    margin: 10px auto;
+    width: 90%;
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+    font-size: clamp(12px, 2.5vw, 18px);
 }
 
 /* 🔹 Responsive Fix */
 @media (max-width: 600px) {
     .container {
-        width: 85%;
-        max-width: 85%;
-        padding: 5px;
+        width: 95%;
+        padding: 5%;
     }
 
     button {
         font-size: 14px;
-        padding: 6px 12px;
+        padding: 8px 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .prediction-box,
+    .details,
+    .history {
+        font-size: 16px;
     }
 }
-                     
