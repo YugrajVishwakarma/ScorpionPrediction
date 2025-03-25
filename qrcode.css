@@ -1,0 +1,280 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* 🔥 Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth; /* For smoother scrolling if needed */
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    text-align: center;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* 🔥 Main Content Container */
+main {
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.07); /* Slightly more opaque background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+    animation: slideInDown 1s ease-out; /* Initial slide-in animation */
+}
+
+/* 🔥 Heading Style */
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: -webkit-linear-gradient(45deg, #00ffff, #ff00ff); /* Cyan to Magenta */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 1.5s infinite alternate; /* Subtle pulsing animation */
+    margin-bottom: 1.5rem;
+    border-bottom: 2px dashed rgba(0, 255, 255, 0.3); /* Dashed border */
+    padding-bottom: 0.5rem;
+}
+
+/* 🔥 Label Style */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #ddd; /* Slightly softer white */
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* 🔥 Input Field */
+input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border: 1px solid rgba(0, 255, 255, 0.2); /* Cyan border */
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    background: rgba(0, 255, 255, 0.05); /* Subtle cyan background */
+    color: #fff;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Glow Effect on Focus */
+input:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.6); /* Brighter cyan glow */
+}
+
+/* 🔥 Button Style */
+button {
+    background: linear-gradient(90deg, #ff00ff, #00ffff); /* Magenta to Cyan */
+    color: #fff;
+    border: 2px solid transparent; /* Transparent border initially */
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    position: relative; /* For pseudo-element animation */
+    overflow: hidden; /* Clip the pseudo-element */
+}
+
+/* Button Hover Effect with Border Animation */
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8); /* Magenta glow on hover */
+    border-color: #00ffff; /* Cyan border on hover */
+}
+
+/* Button Active Effect */
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.6);
+}
+
+/* 🔥 QR Code Container */
+#qrContainer {
+    margin-top: 2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    animation: fadeInUp 0.7s ease-out 0.3s forwards; /* Slide up after a delay */
+}
+
+/* QR Code Styling */
+#qrContainer canvas {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 5px 20px rgba(255, 0, 255, 0.5); /* Magenta glow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border: 2px solid rgba(255, 0, 255, 0.3); /* Magenta border */
+}
+
+/* Hover Effect with Border Pulse */
+#qrContainer canvas:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7); /* Cyan glow on hover */
+    border-color: #00ffff; /* Cyan border on hover */
+    animation: borderPulse 1s infinite alternate; /* Pulsing border animation */
+}
+
+/* Fade-in Animation */
+#qrContainer.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🔥 Footer */
+footer {
+    margin-top: auto;
+    padding: 1.5rem 0; /* Increased padding */
+    font-size: 1rem; /* Slightly larger font size */
+    color: #ccc; /* Lighter grey */
+    background: rgba(0, 0, 0, 0.1); /* Subtle dark background for better contrast */
+    border-top: 1px solid rgba(0, 255, 255, 0.2); /* Cyan top border */
+    width: 100%; /* Ensure full width */
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #00ffff; /* Cyan link color */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect on Link */
+footer a:hover {
+    color: #ff00ff; /* Magenta on hover */
+    text-decoration: underline;
+}
+
+/* 🔥 Keyframe Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideInDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+@keyframes borderPulse {
+    0% { border-color: rgba(0, 255, 255, 0.3); }
+    100% { border-color: rgba(0, 255, 255, 0.7); }
+}
+
+/* 🔥 Fully Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 6%;
+    }
+
+    main {
+        padding: 25px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.4rem;
+        border-bottom-width: 1.5px;
+    }
+
+    input {
+        padding: 0.9rem;
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+        border-radius: 6px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 0.9rem 1.8rem;
+        border-radius: 6px;
+    }
+
+    #qrContainer canvas {
+        padding: 1.2rem;
+        border-radius: 10px;
+        border-width: 1.5px;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 1.2rem 0;
+        border-top-width: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 8%;
+    }
+
+    main {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.3rem;
+        letter-spacing: 0.5px;
+    }
+
+    input {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+    }
+
+    #qrContainer canvas {
+        padding: 1rem;
+        border-radius: 8px;
+        border-width: 1px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 1rem 0;
+        border-top-width: 0.8px;
+    }
+                                        }
